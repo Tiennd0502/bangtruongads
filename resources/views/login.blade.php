@@ -32,7 +32,7 @@
 			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
 				<form class="login100-form " action="{{ route('postLogin')}}" method="POST"> {{-- .validate-form --}}
 					@csrf
-					<span class="login100-form-title p-b-49">
+					<span class="login100-form-title mb-5">
 						ĐĂNG NHẬP
 					</span>
 					@if(session('message'))
@@ -40,8 +40,8 @@
 							{{ session('message') }}
 						</div>
 					@endif
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
-						<span class="label-input100">Tải khoản</span> 
+					<div class="wrap-input100 validate-input mb-3" data-validate = "Username is reauired">
+						<span class="label-input100">Tài khoản</span> 
 						<input class="input100" type="text" name="name" placeholder="Tài khoản ">
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
@@ -52,21 +52,17 @@
 						<span class="focus-input100" data-symbol="&#xf190;"></span>
 					</div>
 					<br>
-					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+					<div class="wrap-input100 validate-select mb-3">
 						<span class="label-input100">Văn phòng</span>
-						<select class="input100"  name="office_id" id="sele">
-							<option value="">Văn phòng 2</option>
-							<option value="">Văn phòng 3</option>
-							<option value="">Văn phòng VietCall</option>
-							<option value="">Văn phòng VietCall 2</option>
-							<option value="">Văn phòng Tân Thành</option>
-							<option value=" ">Văn phòng TPCN</option>
-							<option value="">Văn phòng Kỳ Anh</option>
+						<select class="input100"  name="office_id" id="">
+							@foreach ($offices as $office)
+								<option value="{{ $office->id }}">{{ $office->name}}</option>
+							@endforeach
 						</select>
 						<span class="focus-input100" data-symbol="&#xf206;"></span>
 					</div>
 					
-					<div class="text-right p-t-8 p-b-31">
+					<div class="text-right p-t-8 pb-3">
 						<a href="#">
 							Quên mật khẩu?
 						</a>
@@ -81,13 +77,18 @@
 						</div>
 					</div>
 
-					<div class="txt1 text-center p-t-54 p-b-20">
-						<span>
-							Hoặc đăng ký bằng
-						</span>
-					</div>
+				  <div class="flex-col-c pt-2 mb-3">
+            <span class="txt1">
+              Bạn đã chưa có tài khoản? Đăng kí 
+							<a href="{{route('getRegister')}}" class="font-weight-bold">
+								TẠI ĐÂY
+							</a>
+            </span>
 
-					<div class="flex-c-m">
+            
+          </div>
+
+					{{-- <div class="flex-c-m">
 						<a href="#" class="login100-social-item bg1">
 							<i class="fab fa-facebook-f"></i>
 						</a>
@@ -99,7 +100,7 @@
 						<a href="#" class="login100-social-item bg3">
 							<i class="fab fa-google"></i>
 						</a>
-					</div>
+					</div> --}}
 				</form>
 			</div>
 		</div>

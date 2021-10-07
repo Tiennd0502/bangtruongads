@@ -132,7 +132,28 @@
           dataType: "json",
           url: _url,
           success: function (response) {
-            console.log('true33');
+            console.log('active');
+            $(this).parent().remove();
+          },
+          error: function(error) {
+            console.log('loi cmnr');
+          }
+        });
+      });
+
+      // action inactive account user
+      $(document).on('click', '.js-user-inactive', function(el){
+        // el.preventDefault();
+        let _url = $(this).data('url');
+        let _
+        console.log(_url);
+        $.ajax({
+          type: "POST",
+          contentType: "application/json; charset=utf-8",
+          dataType: "json",
+          url: _url,
+          success: function (response) {
+            console.log('inactive');
             $(this).parent().remove();
           },
           error: function(error) {

@@ -23,6 +23,9 @@ Route::get('', [AdminController::class, 'getLogin'])->name('getLogin');
 Route::get('/login', [AdminController::class, 'getLogin']);
 Route::post('', [AdminController::class, 'postLogin'])->name('postLogin');
 Route::get('logout', [AdminController::class, 'logout'])->name('logout');
+Route::get('/register',[AdminController::class, 'getRegister'])->name('getRegister');
+Route::post('/register',[AdminController::class, 'postRegister'])->name('postRegister');
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard')->middleware('auth');
 // user
@@ -31,6 +34,8 @@ Route::group(['prefix' => 'user', 'middleware'=>'auth'], function () {
     Route::post('/comfirm', [UserController::class, 'getConfirm'])              ->name('user.getConfirm');
     Route::post('/employee-manager', [UserController::class, 'getMember'])      ->name('user.employeeManager');
     Route::post('/active/{id}', [UserController::class, 'active'])              ->name('user.active');
+    Route::post('/inactive/{id}', [UserController::class, 'inActive'])              ->name('user.inActive');
+
     Route::get('/create', [UserController::class, 'create'])                    ->name('user.create');
     Route::post('/', [UserController::class, 'store'])                          ->name('user.store');
     Route::put('/{id}', [UserController::class, 'update'])                      ->name('user.update')->whereNumber('id');
@@ -58,4 +63,23 @@ Route::group(['prefix' => 'position', 'middleware'=>'auth'], function () {
     Route::delete('/{id}', [PositionController::class, 'destroy'])       ->name('position.destroy')->whereNumber('id');
     Route::get('/{id}', [PositionController::class, 'show'])             ->name('position.show')->whereNumber('id');
     Route::get('/{id}/edit', [PositionController::class, 'edit'])        ->name('position.edit')->whereNumber('id');
+});
+
+Route::group(['prefix' => 'telesales', 'middleware'=>'auth'], function () {
+    Route::get('/', [PositionController::class, 'index'])                ->name('telesales.index');
+    Route::get('/create', [PositionController::class, 'create'])         ->name('telesales.create');
+    Route::post('/', [PositionController::class, 'store'])               ->name('telesales.store');
+    Route::put('/{id}', [PositionController::class, 'update'])           ->name('telesales.update')->whereNumber('id');
+    Route::delete('/{id}', [PositionController::class, 'destroy'])       ->name('telesales.destroy')->whereNumber('id');
+    Route::get('/{id}', [PositionController::class, 'show'])             ->name('telesales.show')->whereNumber('id');
+    Route::get('/{id}/edit', [PositionController::class, 'edit'])        ->name('telesales.edit')->whereNumber('id');
+});
+Route::group(['prefix' => 'cskh', 'middleware'=>'auth'], function () {
+    Route::get('/', [PositionController::class, 'index'])                ->name('cskh.index');
+    Route::get('/create', [PositionController::class, 'create'])         ->name('cskh.create');
+    Route::post('/', [PositionController::class, 'store'])               ->name('cskh.store');
+    Route::put('/{id}', [PositionController::class, 'update'])           ->name('cskh.update')->whereNumber('id');
+    Route::delete('/{id}', [PositionController::class, 'destroy'])       ->name('cskh.destroy')->whereNumber('id');
+    Route::get('/{id}', [PositionController::class, 'show'])             ->name('cskh.show')->whereNumber('id');
+    Route::get('/{id}/edit', [PositionController::class, 'edit'])        ->name('cskh.edit')->whereNumber('id');
 });

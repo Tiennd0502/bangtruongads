@@ -8,8 +8,8 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
-            <h3>0</h3>
-            <p class="mt-4 mb-0">TỔNG NHÂN VIÊN HÔM NAY</p>
+            <p class="">TỔNG NHÂN VIÊN HÔM NAY</p>
+            <h3>10</h3>
           </div>
           <div class="icon">
             <i class="fas fa-users"></i>
@@ -22,9 +22,8 @@
         <!-- small box -->
         <div class="small-box bg-success">
           <div class="inner">
-            <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-            <p class="mt-4 mb-0">SỐ DATA ĐÃ GỌI</p>
+            <p class="">SỐ DATA ĐÃ GỌI</p>
+            <h3>213</h3> {{--  <sup style="font-size: 20px">%</sup> --}}
           </div>
           <div class="icon">
             <i class="fas fa-calendar"></i>
@@ -37,9 +36,8 @@
         <!-- small box -->
         <div class="small-box bg-info">
           <div class="inner">
+            <p class="">KHÁCH ĐỒNG Ý</p>
             <h3>44</h3>
-
-            <p class="mt-4 mb-0">KHÁCH ĐỒNG Ý</p>
           </div>
           <div class="icon">
             <i class="fas fa-hands-usd"></i>
@@ -50,16 +48,15 @@
       <!-- ./col -->
       <div class="col-lg-4 col-6">
         <!-- small box -->
-        <div class="small-box bg-warning">
+        <div class="small-box bg-warning text-white">
           <div class="inner">
-            <h3>65</h3>
-
-            <p class="mt-4 mb-0">ĐƠN XUẤT ĐI</p>
+            <p class="text-white">ĐƠN XUẤT ĐI</p>
+            <h3 class="text-white">65</h3>
           </div>
           <div class="icon">
             <i class="far fa-clipboard-list-check"></i>
           </div>
-          <a href="#" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+          <a href="#" class="small-box-footer text-white" style="color:white !important">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
         </div>
       </div>
       <!-- ./col -->
@@ -67,12 +64,11 @@
         <!-- small box -->
         <div class="small-box bg-dark">
           <div class="inner">
-            <h3>65</h3>
-
-            <p class="mt-4 mb-0">TỶ LỆ PHÁT THÀNH CÔNG</p>
+            <p class="">TỶ LỆ PHÁT THÀNH CÔNG</p>
+            <h3>15 %</h3>
           </div>
           <div class="icon">
-            <i class="far fa-clipboard-list-check"></i>
+            <i class="far fa-clipboard-check"></i>
           </div>
           <a href="#" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
         </div>
@@ -82,12 +78,39 @@
         <!-- small box -->
         <div class="small-box bg-danger">
           <div class="inner">
-            <h3>65</h3>
-
-            <p class="mt-4 mb-0">DATA CHƯA XỬ LÝ</p>
+            <p class="">DATA CHƯA XỬ LÝ</p>
+            <h3>6,500</h3>
           </div>
           <div class="icon">
-            <i class="far fa-clipboard-list-check"></i>
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <a href="#" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-6">
+        <!-- small box -->
+        <div class="small-box bg-primary">
+          <div class="inner">
+            <p class="">GIÒ 100ML (ĐƠN ĐỒNG Ý - XUẤT ĐI)</p>
+            <h3>1 ( 0.89% ) - 0 ( 0% )</h3>
+          </div>
+          <div class="icon">
+            <i class="fas fa-archive"></i>
+          </div>
+          <a href="#" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
+        </div>
+      </div>
+      <!-- ./col -->
+      <div class="col-lg-4 col-6">
+        <!-- small box -->
+        <div class="small-box bg-success">
+          <div class="inner">
+            <p class="">COCO CHANEL (ĐƠN ĐỒNG Ý - XUẤT ĐI)</p>
+            <h3>1 ( 0.89% ) - 0 ( 0% ) </h3>
+          </div>
+          <div class="icon">
+            <i class="fas fa-archive"></i>
           </div>
           <a href="#" class="small-box-footer">Xem thêm <i class="fas fa-arrow-circle-right"></i></a>
         </div>

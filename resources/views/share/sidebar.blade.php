@@ -211,6 +211,30 @@
               </li>
             </ul>
           </li>
+          <li class="nav-header">Telesales - CSKH</li>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-cog"></i>
+              <p>
+                Telesales - CSKH
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{ route('telesales')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Telesales </p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{ route('cskh')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CSKH</p>
+                </a>
+              </li>
+            </ul>
+          </li>
           <li class="nav-header">Quản lý tài khoản</li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

@@ -37,7 +37,7 @@ class UserController extends Controller
       $users = MainModel::where('active',0)->select(['id', 'fullname', 'email', 'phone', 'network_operator']);
       return Datatables::of($users)
       ->addColumn('action', function ($user) {
-        return '<a href="javascript:void(0)" data-url="'. route('user.active', $user->id) .'" class="btn btn-xs btn-success js-user-active"><i class="fas fa-user-check"></i> Chấp nhận</a><meta name="csrf-token" content="{{ csrf_token() }}"><a href="javascript:void(0)" data-id="' . $user->id . '" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Hủy bỏ</a>';
+        return '<a href="javascript:void(0)" data-url="'. route('user.active', $user->id) .'" class="btn btn-xs btn-success js-user-active"><i class="fas fa-user-check"></i> Duyệt </a> <a href="javascript:void(0)" data-id="' . $user->id . '" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Xóa</a>';
       })
       ->rawColumns(["action"])
       ->make(true);
@@ -50,7 +50,8 @@ class UserController extends Controller
       $users = MainModel::where("active",1)->select(["id", "fullname", "email", "phone", "network_operator"]);
       return Datatables::of($users)
       ->addColumn("action", function ($user) {
-        return '<a href="'. route('user.show', $user->id) .'" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i> Sửa</a> <meta name="csrf-token" content="{{ csrf_token() }}"><a href="javascript:void(0)" data-url="' . $user->id . '" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Hủy bỏ</a>';
+        return '<a href="'. route('user.show', $user->id) .'" class="btn btn-xs btn-warning"><i class="fas fa-edit"></i> Sửa</a> <a href="javascript:void(0)" data-url="' . $user->id . '" class="btn btn-xs btn-danger btn-delete"><i class="fa fa-times"></i> Hủy bỏ</a>
+        <a href="javascript:void(0)" data-url="' . route('user.inActive', $user->id) . '" class="btn btn-xs btn-info js-user-inactive"><i class="fa fa-times"></i> Bỏ active</a>';
       })
       ->rawColumns(['action'])
       ->make(true);
@@ -63,6 +64,20 @@ class UserController extends Controller
       // DB::beginTransaction();
       $item = MainModel::find($id);
       $item->active    = 1;
+      $item->save();
+      // DB::commit();
+      return true;
+    } catch (ModelNotFoundException $exception) {
+      // DB::rollBack();
+      return false;
+    }
+  }
+  public function inActive(Request $request, $id)
+  {
+    try {
+      // DB::beginTransaction();
+      $item = MainModel::find($id);
+      $item->active    = 0;
       $item->save();
       // DB::commit();
       return true;
@@ -102,8 +117,6 @@ class UserController extends Controller
       // DB::rollBack();
       return back()->with('error', __('Thêm thành viên không thành công!'));
     }
-
-    return 'view-add-csdl';
   }
 
   public function edit()
